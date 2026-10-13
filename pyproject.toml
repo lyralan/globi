@@ -85,6 +85,7 @@ globi = "globi.tools.cli.main:cli"
 # epinterface = {path = "../epinterface", editable = true}
 # epinterface = {path = "epinterface", editable = true}
 # epinterface = {git = "https://github.com/szvsw/epinterface", branch = "feature/use-scene-context-for-geometry"}
+epinterface = {git = "https://github.com/lyralan/epinterface", branch = "heals/resstock-components"}
 
 
 [build-system]

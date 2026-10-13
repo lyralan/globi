@@ -978,7 +978,7 @@ wheels = [
 [[package]]
 name = "epinterface"
 version = "1.4.0"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/lyralan/epinterface?branch=heals%2Fresstock-components#f747df5f080bed1564686a85cfca70eed4841578" }
 dependencies = [
     { name = "archetypal" },
     { name = "click" },
@@ -991,10 +991,6 @@ dependencies = [
     { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "pythermalcomfort" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/b8/45/163ac4e8fcd92d94cb223fad8a66a17b7f408e1c0964ab8ff49af500f1b8/epinterface-1.4.0.tar.gz", hash = "sha256:4c880d917cc0aed3cb49cdfcee1f255bd6bfcaeab381a903d48310af6499cd06", size = 5981334, upload-time = "2026-03-06T14:55:08.308Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/95/79/84f389e491fff2e701de506f1034c81f41b7c28cea2d8ab6f49e172e2c2c/epinterface-1.4.0-py3-none-any.whl", hash = "sha256:6fabc96b9fa6cfb6d3609c5a06ae6071e5ad3a3519123a3f3f29dd991178cb4f", size = 883207, upload-time = "2026-03-06T14:55:06.55Z" },
 ]
 
 [[package]]
@@ -1416,7 +1412,7 @@ requires-dist = [
     { name = "bokeh", marker = "extra == 'visualization'", specifier = ">=3.8.0" },
     { name = "boto3", specifier = ">=1.40.49" },
     { name = "click", marker = "extra == 'cli'", specifier = ">=8.1.7" },
-    { name = "epinterface", specifier = ">=1.4.0" },
+    { name = "epinterface", git = "https://github.com/lyralan/epinterface?branch=heals%2Fresstock-components" },
     { name = "fiona", specifier = ">=1.9.5" },
     { name = "folium", marker = "extra == 'visualization'", specifier = ">=0.15.0" },
     { name = "geopandas", specifier = ">=0.14.0" },
