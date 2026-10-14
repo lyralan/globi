@@ -132,6 +132,8 @@ def simulate_globi_building_pipeline(
                 orientation=spec.long_edge_angle,
             ),
         ),
+        Foundation=spec.foundation,
+        WindowShading=spec.window_shading,
     )
 
     log("Building and running model...")

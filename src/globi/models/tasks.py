@@ -7,6 +7,8 @@ from typing import Literal
 
 import numpy as np
 from epinterface.geometry import compute_shading_mask
+from epinterface.sbem.kiva import KivaFoundation
+from epinterface.sbem.window_shading import WindowShading
 from pydantic import BaseModel, Field, model_validator
 from scythe.base import ExperimentInputSpec, ExperimentOutputSpec
 from scythe.utils.filesys import FileReference
@@ -182,6 +184,20 @@ class GloBIBuildingSpec(ExperimentInputSpec):
         description="The fraction of the basement that is exposed to the air.",
         gt=0,
         lt=1,
+    )
+    roof_pitch: float | None = Field(
+        default=None,
+        description="Attic roof pitch as rise over run; when unset the attic height is sampled.",
+        gt=0,
+    )
+    foundation: KivaFoundation | None = Field(
+        default=None,
+        description="Kiva ground heat transfer for slab-on-grade floors; when unset the ground "
+        "temperature is fixed from the setpoints.",
+    )
+    window_shading: WindowShading | None = Field(
+        default=None,
+        description="Interior shading multipliers and eaves over the windows.",
     )
 
     parent_experiment_spec: GloBIExperimentSpec | None = Field(
@@ -373,6 +389,8 @@ class GloBIBuildingSpec(ExperimentInputSpec):
         """The height of the attic."""
         if not self.has_attic:
             return None
+        if self.roof_pitch is not None:
+            return self.short_edge / 2 * self.roof_pitch
         min_occupied_or_conditioned_rise_over_run = 6 / 12
         max_occupied_or_conditioned_rise_over_run = 9 / 12
         min_unoccupied_and_unconditioned_rise_over_run = 4 / 12
