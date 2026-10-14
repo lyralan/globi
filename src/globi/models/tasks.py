@@ -23,6 +23,13 @@ from globi.type_utils import (
 logger = logging.getLogger(__name__)
 
 
+class DaylightSavingPeriod(BaseModel):
+    """First and last day of daylight saving time, as (month, day)."""
+
+    Start: tuple[int, int]
+    End: tuple[int, int]
+
+
 class MinimalBuildingSpec(BaseModel):
     """A spec for running an EnergyPlus simulation for any region."""
 
@@ -198,6 +205,10 @@ class GloBIBuildingSpec(ExperimentInputSpec):
     window_shading: WindowShading | None = Field(
         default=None,
         description="Interior shading multipliers and eaves over the windows.",
+    )
+    daylight_saving_time: "DaylightSavingPeriod | None" = Field(
+        default=None,
+        description="Daylight saving period; None keeps standard time.",
     )
 
     parent_experiment_spec: GloBIExperimentSpec | None = Field(

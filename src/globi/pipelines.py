@@ -134,6 +134,9 @@ def simulate_globi_building_pipeline(
         ),
         Foundation=spec.foundation,
         WindowShading=spec.window_shading,
+        DaylightSavingTime=(spec.daylight_saving_time.Start, spec.daylight_saving_time.End)
+        if spec.daylight_saving_time
+        else None,
     )
 
     log("Building and running model...")
