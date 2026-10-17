@@ -978,7 +978,7 @@ wheels = [
 [[package]]
 name = "epinterface"
 version = "1.4.0"
-source = { git = "https://github.com/lyralan/epinterface?branch=heals%2Fresstock-components#1081650abdee2d5790cc4552c23c99191146f677" }
+source = { git = "https://github.com/lyralan/epinterface?branch=heals%2Fresstock-components#85c9735527c5ff29298c9a70d1b5efa350ba4386" }
 dependencies = [
     { name = "archetypal" },
     { name = "click" },
